@@ -1,1 +1,9 @@
-
+{
+  "barang": [
+    { "id": 1, "nama_barang": "MikroTik RB941-2nD", "jenis": "Alat", "stok": 10, "lokasi_rak": "Rak A-1" },
+    { "id": 2, "nama_barang": "Cisco Switch 2960", "jenis": "Alat", "stok": 5, "lokasi_rak": "Rak A-2" },
+    { "id": 3, "nama_barang": "Kabel UTP Cat5e (Meter)", "jenis": "Bahan", "stok": 100, "lokasi_rak": "Rak B-1" },
+    { "id": 4, "nama_barang": "Konektor RJ45 (Pcs)", "jenis": "Bahan", "stok": 50, "lokasi_rak": "Rak B-2" }
+  ],
+  "peminjaman": []
+}
