@@ -1,1 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kelola Barang — Bengkel TKJ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <div class="header">
+    <h1>📦 Kelola Barang Bengkel TKJ</h1>
+    <div class="header-info" id="authArea"></div>
+  </div>
+
+  <div class="nav-tabs" id="navArea"></div>
+
+  <div id="alert" class="alert"></div>
+
+  <div class="container">
+
+    <div class="panel-form">
+      <h2 id="formTitle">Tambah Barang Baru</h2>
+      <form id="formBarang">
+        <div class="form-group">
+          <label>Nama Barang</label>
+          <input type="text" id="nama_barang" required placeholder="Contoh: Router TP-Link">
+        </div>
+        <div class="form-group">
+          <label>Jenis</label>
+          <select id="jenis" required>
+            <option value="Alat">Alat</option>
+            <option value="Bahan">Bahan</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Stok</label>
+          <input type="number" id="stok" min="0" required placeholder="0">
+        </div>
+        <div class="form-group">
+          <label>Lokasi Rak</label>
+          <input type="text" id="lokasi_rak" required placeholder="Contoh: Rak C-1">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Simpan Barang</button>
+        <button type="button" id="btnCancelEdit" class="btn btn-secondary btn-block mt-10" style="display:none;">Batal Edit</button>
+      </form>
+    </div>
+
+    <div class="panel-table">
+      <h2>Daftar Inventaris Barang</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nama Barang</th>
+            <th>Jenis</th>
+            <th>Stok</th>
+            <th>Lokasi Rak</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="tabelBarang">
+          <tr><td colspan="6" class="empty">Memuat data...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    (async function () {
+      await initData();
+      initBarangPage();
+    })();
+  </script>
+</body>
+</html>
