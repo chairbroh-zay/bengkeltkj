@@ -1,1 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pengaturan — Bengkel TKJ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+  <div class="header">
+    <h1>⚙️ Pengaturan & Backup Data</h1>
+    <div class="header-info" id="authArea"></div>
+  </div>
+
+  <div class="nav-tabs" id="navArea"></div>
+
+  <div id="alert" class="alert"></div>
+
+  <div class="panel-full">
+
+    <h2>📊 Informasi Data</h2>
+    <div id="storageInfo" class="mt-10">
+      <p class="text-muted">Memuat...</p>
+    </div>
+
+    <hr>
+
+    <h2>💾 Backup & Restore</h2>
+    <div class="settings-grid">
+
+      <div class="settings-card">
+        <h3>📤 Export JSON</h3>
+        <p>Download seluruh data (barang + peminjaman) sebagai file JSON untuk backup.</p>
+        <button id="btnExport" class="btn btn-primary btn-block">Download Backup</button>
+      </div>
+
+      <div class="settings-card">
+        <h3>📥 Import JSON</h3>
+        <p>Restore data dari file backup. Data saat ini akan ditimpa.</p>
+        <button id="btnImport" class="btn btn-warning btn-block">Pilih File Backup</button>
+        <input type="file" id="fileImport" accept=".json,application/json" style="display:none;">
+      </div>
+
+      <div class="settings-card">
+        <h3>🔄 Reset ke Default</h3>
+        <p>Kembalikan semua data ke kondisi awal (4 barang contoh, tanpa peminjaman).</p>
+        <button id="btnReset" class="btn btn-danger btn-block">Reset Data</button>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <h2>ℹ️ Catatan</h2>
+    <ul class="text-muted">
+      <li>Data disimpan di <strong>localStorage browser</strong> — hilang jika cache dibersihkan.</li>
+      <li>Gunakan <strong>Export</strong> secara berkala untuk backup.</li>
+      <li>Saat Import, data lama otomatis disimpan sebagai cadangan (<code>_backup</code>) sebelum ditimpa.</li>
+      <li>Login menggunakan <code>sessionStorage</code> — otomatis logout saat tab ditutup.</li>
+    </ul>
+
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    (async function () {
+      await initData();
+      initPengaturanPage();
+    })();
+  </script>
+</body>
+</html>
